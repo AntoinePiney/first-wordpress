@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import style from "Home.module.css";
 
 export default function Home() {
   const [title, setTitle] = useState("");
@@ -23,7 +24,7 @@ export default function Home() {
 
   return (
     <div>
-      <h1>{title}</h1>
+      <h1 className={styles.Home}>{title}</h1>
       <div dangerouslySetInnerHTML={{ __html: content }} />
     </div>
   );
