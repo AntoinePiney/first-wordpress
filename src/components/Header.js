@@ -1,0 +1,17 @@
+import styles from "@/styles/Header.module.css";
+import Link from "next/link";
+
+export default function Header() {
+  return (
+    <header className={styles.Header}>
+      <ul>
+        <li>
+          <Link href="/">Home</Link>
+        </li>
+        <li>
+          <Link href="/test">test</Link>
+        </li>
+      </ul>
+    </header>
+  );
+}

@@ -9,11 +9,11 @@ export default function Home() {
     fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/pages`)
       .then((response) => response.json())
       .then((data) => {
-        // Trouver la page avec le slug "home"
-        const homepage = data.find((page) => page.slug === "home");
-        if (homepage) {
-          setTitle(homepage.title.rendered); // Titre de la page
-          setContent(homepage.content.rendered); // Contenu de la page
+        // Trouver la page avec le slug "test"
+        const testPage = data.find((page) => page.slug === "test");
+        if (testPage) {
+          setTitle(testPage.title.rendered); // Titre de la page
+          setContent(testPage.content.rendered); // Contenu de la page
         }
       })
       .catch((error) =>
