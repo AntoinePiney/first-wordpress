@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function Home() {
+export default function Test() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
