@@ -2,7 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["localhost"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "admin.antoinepiney.fr",
+        pathname: "/wp-content/uploads/**",
+      },
+    ],
   },
 };
 
