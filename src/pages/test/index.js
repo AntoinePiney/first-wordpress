@@ -46,7 +46,7 @@ export default function Test() {
     fetchData();
   }, []);
 
-  if (isLoading) return <div>Chargement...</div>;
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <div className={styles.Test}>
