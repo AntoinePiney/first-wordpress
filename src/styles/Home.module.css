@@ -12,18 +12,9 @@
 
 /* Home.module.css */
 
-h1 {
+.h1 {
   color: #ffffff;
   font-size: 2rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  overflow-wrap: break-word;
-}
-
-p {
-  color: #ffffff;
-  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   letter-spacing: -0.01em;
