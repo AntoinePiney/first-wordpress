@@ -1,15 +1,23 @@
 @font-face {
+  font-family: "instrument_serifitalic";
+  src: url("./fonts/instrumentserif-italic-webfont.woff2") format("woff2"),
+    url("./fonts/instrumentserif-italic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "neue_montrealmedium";
-  src: url("@/assets/fonts/neuemontreal-medium-webfont.woff2") format("woff2"),
-    url("@/assets/fonts/neuemontreal-medium-webfont.woff") format("woff");
+  src: url("./fonts/neuemontreal-medium-webfont.woff2") format("woff2"),
+    url("./fonts/neuemontreal-medium-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "neue_montrealregular";
-  src: url("@/assets/fonts/neuemontreal-regular-webfont.woff2") format("woff2"),
-    url("@/assets/fonts/neuemontreal-regular-webfont.woff") format("woff");
+  src: url("./fonts/neuemontreal-regular-webfont.woff2") format("woff2"),
+    url("./fonts/neuemontreal-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }

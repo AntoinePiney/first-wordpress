@@ -1,6 +1,11 @@
 .Header {
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
   padding: 32px;
-  border-bottom: 1px solid black;
 }
 
 .Header ul {
