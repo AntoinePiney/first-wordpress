@@ -1,5 +1,13 @@
 .Test {
-  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  height: 100vh;
+  min-height: 100vh;
+  background-color: #0e0e0f;
+  gap: 64px;
 }
 
 /* Home.module.css */
@@ -9,12 +17,5 @@
   color: #ffffff;
   text-align: center;
   margin: 2rem 0;
-  line-height: 1.2;
-}
-
-.content {
-  font-size: 1rem;
-  color: #ffffff;
-  text-align: center;
   line-height: 1.2;
 }
