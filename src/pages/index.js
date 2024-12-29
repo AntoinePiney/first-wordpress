@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import parse from "html-react-parser";
 import styles from "@/styles/Home.module.css";
 
 export default function Home() {
@@ -10,7 +11,7 @@ export default function Home() {
     fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/pages`)
       .then((response) => response.json())
       .then((data) => {
-        // Trouver la page avec le slug "test"
+        // Trouver la page avec le slug "home"
         const testPage = data.find((page) => page.slug === "home");
         if (testPage) {
           setTitle(testPage.title.rendered); // Titre de la page
@@ -25,10 +26,22 @@ export default function Home() {
   return (
     <div className={styles.Home}>
       <h1 className={styles.h1}>{title}</h1>
-      <div
-        className={styles.content}
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
+      <div className={styles.content}>
+        {parse(content, {
+          replace: (domNode) => {
+            if (domNode.type === "tag") {
+              if (domNode.name === "h1") {
+                return (
+                  <h1 className={styles.h1}>{domNode.children[0].data}</h1>
+                );
+              }
+              if (domNode.name === "p") {
+                return <p className={styles.p}>{domNode.children[0].data}</p>;
+              }
+            }
+          },
+        })}
+      </div>
     </div>
   );
 }
