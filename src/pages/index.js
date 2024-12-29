@@ -25,7 +25,10 @@ export default function Home() {
   return (
     <div className={styles.Home}>
       <h1 className={styles.h1}>{title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <div
+        className={styles.content}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
     </div>
   );
 }

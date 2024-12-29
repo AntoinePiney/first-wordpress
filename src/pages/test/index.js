@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from "@/styles/Test.module.css";
 
 export default function Test() {
   const [title, setTitle] = useState("");
@@ -22,9 +23,12 @@ export default function Test() {
   }, []);
 
   return (
-    <div>
-      <h1>{title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+    <div className={styles.Test}>
+      <h1 className={styles.h1}>{title}</h1>
+      <div
+        className={styles.content}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
     </div>
   );
 }
