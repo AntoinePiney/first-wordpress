@@ -30,7 +30,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <span>{footerData.time}</span>
-        <span>
+        <span className={styles.email}>
           Email: <a href={`mailto:${footerData.email}`}>{footerData.email}</a>
         </span>
         <div className={styles.links}>
@@ -53,7 +53,7 @@ const Footer = () => {
             {footerData.awwwardsLink.title}
           </a>
         </div>
-        <span>{footerData.copyright}</span>
+        <span className={styles.copyright}>{footerData.copyright}</span>
       </div>
     </footer>
   );
