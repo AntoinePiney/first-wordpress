@@ -1,10 +1,20 @@
 import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import styles from "@/styles/Coming.module.css";
+
+// Correctly configure dynamic import
+const Scene = dynamic(() => import("./Scene").then((mod) => mod.default), {
+  ssr: false,
+  loading: () => <div className={styles.loading}>Loading 3D Scene...</div>,
+});
 
 const Sidebar = () => (
   <div className={styles.sidebar}>
     <div className={styles.menu}>
       <div className={styles.menuItem}>[01] Welcome Kit</div>
+    </div>
+    <div style={{ flex: 1, height: "60vh" }}>
+      <Scene />
     </div>
   </div>
 );
@@ -77,7 +87,7 @@ const Coming = () => {
     };
 
     updateTime();
-    const interval = setInterval(updateTime, 60000); // Update every minute instead of every second
+    const interval = setInterval(updateTime, 60000);
     return () => clearInterval(interval);
   }, []);
 
