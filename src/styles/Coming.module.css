@@ -10,9 +10,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: url("/assets/images/me.jpg") no-repeat center center; /* Remplacez '/path/to/your/image.jpg' par le chemin réel de votre image */
-  background-size: cover; /* Assure que l'image couvre entièrement la sidebar sans être déformée */
-  color: #fff; /* Change la couleur du texte pour améliorer la visibilité si nécessaire */
+  background: #000;
 }
 
 .menu {
@@ -48,11 +46,13 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #00000050;
 }
 
 .heroSubtitle {
   color: black;
-  font-size: 18px;
+  font-size: 14px;
   text-transform: uppercase;
   width: 30%;
 }
