@@ -10,10 +10,7 @@ const Scene = dynamic(() => import("./Scene").then((mod) => mod.default), {
 
 const Sidebar = () => (
   <div className={styles.sidebar}>
-    <div className={styles.menu}>
-      <div className={styles.menuItem}>[01] Welcome Kit</div>
-    </div>
-    <div style={{ flex: 1, height: "60vh" }}>
+    <div className={styles.canva}>
       <Scene />
     </div>
   </div>

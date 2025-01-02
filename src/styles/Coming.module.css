@@ -13,9 +13,9 @@
   background: #000;
 }
 
-.menu {
-  padding: 20px;
-  font-size: 20px;
+.canva {
+  flex: 1;
+  height: 100vh;
 }
 
 .hero {
