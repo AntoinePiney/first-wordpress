@@ -1,0 +1,107 @@
+.container {
+  display: flex;
+  height: 100vh;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+}
+
+.sidebar {
+  flex: 0 0 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: url("@/assets/images/me.jpg") no-repeat center center; /* Remplacez '/path/to/your/image.jpg' par le chemin réel de votre image */
+  background-size: cover; /* Assure que l'image couvre entièrement la sidebar sans être déformée */
+  color: #fff; /* Change la couleur du texte pour améliorer la visibilité si nécessaire */
+}
+
+.menu {
+  padding: 20px;
+  font-size: 20px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 64px;
+}
+
+.heroTitle h1 {
+  width: fit-content;
+  color: #fff;
+  font-size: 118px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background: black;
+  padding: 8px;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.heroItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.heroSubtitle {
+  color: black;
+  font-size: 18px;
+  text-transform: uppercase;
+  width: 30%;
+}
+
+.heroInfos {
+  color: #000;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.32px;
+}
+
+.contactEmail {
+  color: #000;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.32px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.socials {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+}
+
+.socials a {
+  color: #000;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.date {
+  color: #000;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+}
