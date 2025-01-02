@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: url("@/assets/images/me.jpg") no-repeat center center; /* Remplacez '/path/to/your/image.jpg' par le chemin réel de votre image */
+  background: url("/assets/images/me.jpg") no-repeat center center; /* Remplacez '/path/to/your/image.jpg' par le chemin réel de votre image */
   background-size: cover; /* Assure que l'image couvre entièrement la sidebar sans être déformée */
   color: #fff; /* Change la couleur du texte pour améliorer la visibilité si nécessaire */
 }
