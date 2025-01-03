@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 64px;
+  padding: 65px;
 }
 
 .heroTitle h1 {
