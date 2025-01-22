@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Hero from "@/components/Hero";
 import styles from "@/styles/Test.module.css";
+import Header from "@/components/Header";
 
 export default function Test() {
   const [heroData, setHeroData] = useState({
@@ -50,6 +51,7 @@ export default function Test() {
 
   return (
     <div className={styles.Test}>
+      <Header />
       <Hero
         title={heroData.title}
         image={heroData.imageUrl}
