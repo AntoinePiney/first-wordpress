@@ -1,7 +1,6 @@
 // index.js
 import { useEffect, useState } from "react";
 import styles from "@/styles/Home.module.css";
-import Header from "@/components/Header";
 import Head from "next/head";
 
 export default function Home() {
@@ -38,8 +37,6 @@ export default function Home() {
         <title>{pageMetadata.title}</title>
         <meta name="description" content={pageMetadata.description} />
       </Head>
-      <Header />
-      <h1 className={styles.h1}>{title}</h1>
       <div
         className={styles.content}
         dangerouslySetInnerHTML={{ __html: content }}
