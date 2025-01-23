@@ -1,4 +1,4 @@
-// next.config.js
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   images: {
@@ -11,7 +11,6 @@ const nextConfig = {
     ],
   },
   webpack: (config) => {
-    // Existant
     config.module.rules.push({
       test: /\.(glb|gltf)$/,
       use: {
@@ -22,23 +21,6 @@ const nextConfig = {
         },
       },
     });
-
-    // Ajout PostCSS
-    config.module.rules.push({
-      test: /\.css$/,
-      use: [
-        "style-loader",
-        {
-          loader: "css-loader",
-          options: {
-            modules: true,
-            importLoaders: 1,
-          },
-        },
-        "postcss-loader",
-      ],
-    });
-
     return config;
   },
 };
