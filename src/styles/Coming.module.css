@@ -161,13 +161,6 @@
 }
 
 @media (max-width: 480px) {
-  :root {
-    --spacing-2xl: 3rem;
-    --spacing-xl: 2rem;
-    --spacing-lg: 1rem;
-    --spacing-md: 0.75rem;
-  }
-
   .container {
     padding: var(--spacing-sm);
     gap: var(--spacing-xl);
