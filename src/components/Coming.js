@@ -132,7 +132,7 @@ export default function Coming() {
         <div className={styles.description}>
           <h2 className={styles.descriptionTitle}>Antoine Piney</h2>
           <p className={styles.descriptionContent}>
-            Art Director & Immersive Designer currently at Advertis, focusing on
+            Art Director & Immersive Designer currently at Adveris, focusing on
             motion design, 3D conception and creative development.
           </p>
         </div>
