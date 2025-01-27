@@ -77,7 +77,13 @@ export default function Coming() {
       sections: [
         {
           subtitle: "stack",
-          items: ["Adobe Suite", "After Effects", "Figma", "Blender"],
+          items: [
+            "Adobe Suite",
+            "After Effects",
+            "Figma",
+            "Blender",
+            "Webflow",
+          ],
         },
         {
           subtitle: "stack",
