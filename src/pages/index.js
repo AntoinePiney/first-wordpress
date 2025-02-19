@@ -1,6 +1,6 @@
 // index.js
 import Head from "next/head";
-import Coming from "@/components/Coming";
+import Architecture from "@/components/Architecture";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
           content="Art Director & Immersive Designer focusing on motion design, 3D conception and creative development."
         />
       </Head>
-      <Coming />
+      <Architecture />
     </>
   );
 }
