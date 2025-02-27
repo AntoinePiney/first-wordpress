@@ -128,7 +128,7 @@ export default function Architecture(): React.ReactElement {
                   className={styles.image}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  priority={imgIndex < 2}
+                  priority
                   quality={90}
                 />
               </div>

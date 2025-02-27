@@ -15,6 +15,7 @@
   width: 100%;
   height: 100%;
   z-index: 2;
+  /* Suppression des interactions avec le canvas */
   pointer-events: none;
 }
 
@@ -51,7 +52,7 @@
 .footer,
 .main,
 .timeLocation {
-  pointer-events: auto;
+  pointer-events: none; /* Suppression des interactions avec le footer et le contenu */
 }
 
 /* Nouvelle galerie avec grid avancé */
@@ -71,14 +72,14 @@
   min-height: 300vh;
 }
 
-/* Conteneurs d'images avec positionnement spécifique */
+/* Conteneurs d'images avec suppression des interactions */
 .imageContainer {
   position: relative;
   overflow: hidden;
   border-radius: 4px;
-  pointer-events: auto;
-  cursor: pointer;
+  pointer-events: none; /* Suppression des interactions avec les images */
   aspect-ratio: 4/5;
+  /* Suppression du curseur pointer */
 }
 
 /* Positionnement spécifique pour chaque image */
@@ -122,6 +123,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  user-select: none; /* Empêcher la sélection des images */
+  -webkit-user-drag: none; /* Empêcher le glisser-déposer des images */
+  pointer-events: none; /* Désactiver les interactions souris sur l'image */
 }
 
 /* Footer et autres éléments UI */
