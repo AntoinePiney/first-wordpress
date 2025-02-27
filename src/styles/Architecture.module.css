@@ -4,6 +4,7 @@
   height: 100vh;
   color: white;
   overflow: hidden;
+  background-color: black;
 }
 
 .gridOverlay {
@@ -13,10 +14,12 @@
   grid-template-columns: repeat(12, 1fr);
   width: 100%;
   height: 100%;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .gridColumn {
-  border-right: 1px solid rgb(39, 39, 42);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
   height: 100%;
 }
 
@@ -27,6 +30,17 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.header,
+.footer,
+.headerTitle,
+.headerMenu,
+.main,
+.timeLocation {
+  pointer-events: auto;
 }
 
 .header {
@@ -34,22 +48,106 @@
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
+  position: relative;
+  z-index: 10;
 }
 
 .headerTitle {
-  font-family: var(--font-neue);
+  font-family: var(--font-neue, sans-serif);
   font-weight: 300;
   font-size: 1.125rem;
 }
 
 .headerMenu {
-  font-family: var(--font-neue);
+  font-family: var(--font-neue, sans-serif);
   font-weight: 300;
   font-size: 1.125rem;
   background: none;
   border: none;
   color: inherit;
   cursor: pointer;
+}
+
+.gallery {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  z-index: 2;
+  background-color: black;
+  scroll-behavior: smooth;
+  perspective: 1px;
+  will-change: transform;
+}
+
+.gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.imageSet {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  padding: 6rem 2rem;
+  min-height: 180vh; /* Augmenté pour accommoder 6 images */
+  transition: opacity 0.5s ease, transform 0.2s ease;
+}
+
+.imageContainer {
+  grid-column: span 4;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  aspect-ratio: 3/4;
+  border-radius: 4px;
+}
+
+/* Configuration du positionnement des 6 images */
+.imageContainer:nth-child(1) {
+  grid-column: 2 / span 4;
+  margin-top: 0;
+}
+
+.imageContainer:nth-child(2) {
+  grid-column: 7 / span 4;
+  margin-top: 8rem;
+}
+
+.imageContainer:nth-child(3) {
+  grid-column: 3 / span 4;
+  margin-top: 16rem;
+}
+
+.imageContainer:nth-child(4) {
+  grid-column: 8 / span 4;
+  margin-top: 24rem;
+}
+
+.imageContainer:nth-child(5) {
+  grid-column: 2 / span 4;
+  margin-top: 32rem;
+}
+
+.imageContainer:nth-child(6) {
+  grid-column: 7 / span 4;
+  margin-top: 40rem;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.imageContainer:hover .image {
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
 }
 
 .main {
@@ -72,29 +170,86 @@
 }
 
 .footer {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   width: 100%;
+  z-index: 10;
 }
 
 .timeLocation {
   font-size: 0.875rem;
   color: rgb(115, 115, 115);
 }
-.container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
+
+/* Adaptation pour tablettes */
+@media (max-width: 1024px) {
+  .imageSet {
+    gap: 1.5rem;
+  }
+
+  /* Disposition alternée sur 2 colonnes pour les tablettes */
+  .imageContainer:nth-child(odd) {
+    grid-column: 2 / span 4;
+  }
+
+  .imageContainer:nth-child(even) {
+    grid-column: 7 / span 4;
+  }
+
+  /* Espacements verticaux plus progressifs */
+  .imageContainer:nth-child(1) {
+    margin-top: 0;
+  }
+  .imageContainer:nth-child(2) {
+    margin-top: 6rem;
+  }
+  .imageContainer:nth-child(3) {
+    margin-top: 12rem;
+  }
+  .imageContainer:nth-child(4) {
+    margin-top: 18rem;
+  }
+  .imageContainer:nth-child(5) {
+    margin-top: 24rem;
+  }
+  .imageContainer:nth-child(6) {
+    margin-top: 30rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .imageSet {
+    gap: 1rem;
+  }
+
+  .imageContainer,
+  .imageContainer:nth-child(1),
+  .imageContainer:nth-child(2),
+  .imageContainer:nth-child(3),
+  .imageContainer:nth-child(4),
+  .imageContainer:nth-child(5),
+  .imageContainer:nth-child(6) {
+    grid-column: 2 / span 10;
+    margin: 2rem 0;
+  }
 }
 
 @media (max-width: 640px) {
-  .content {
+  .content,
+  .header,
+  .footer {
     padding: 1rem;
   }
 
   .description {
     font-size: 1.25rem;
+  }
+
+  .imageSet {
+    padding: 4rem 1rem;
   }
 }
 
@@ -106,5 +261,16 @@
 
   .description {
     font-size: 1.125rem;
+  }
+
+  .imageContainer,
+  .imageContainer:nth-child(1),
+  .imageContainer:nth-child(2),
+  .imageContainer:nth-child(3),
+  .imageContainer:nth-child(4),
+  .imageContainer:nth-child(5),
+  .imageContainer:nth-child(6) {
+    grid-column: 1 / -1;
+    margin: 1.5rem 0;
   }
 }
