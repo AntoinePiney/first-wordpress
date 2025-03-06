@@ -56,7 +56,7 @@ const Header = () => {
           <div className={styles.menuContent}>
             <ul>
               <li>
-                <Link href="/projects" onClick={() => setIsMenuOpen(false)}>
+                <Link href="/work" onClick={() => setIsMenuOpen(false)}>
                   Projects
                 </Link>
               </li>

@@ -1,0 +1,30 @@
+.loaderContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1000;
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.fadeOut {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loaderContent {
+  width: 100%;
+  padding: 0 2rem;
+  text-align: left;
+}
+
+.loaderCounter {
+  font-family: var(--font-neue);
+  font-size: 6.25rem;
+  color: #fff;
+  font-weight: 300;
+}
