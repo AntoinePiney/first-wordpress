@@ -1,11 +1,10 @@
-/* Nouvelle implémentation de la galerie en grid */
 .container {
   position: relative;
   width: 100%;
+  min-height: 100vh;
   color: rgb(0, 0, 0);
   background-color: rgb(255, 255, 255);
   overflow: hidden;
-  min-height: 100vh;
 }
 
 .webglCanvas {
@@ -15,10 +14,10 @@
   width: 100%;
   height: 100%;
   z-index: 99999;
-  /* Suppression des interactions avec le canvas */
 }
 
 .gridOverlay {
+  opacity: 0.5;
   position: fixed;
   inset: 0;
   display: grid;
@@ -30,8 +29,8 @@
 }
 
 .gridColumn {
-  border-right: 1px solid rgba(0, 0, 0, 0.05);
   height: 100%;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .content {
@@ -51,10 +50,9 @@
 .footer,
 .main,
 .timeLocation {
-  pointer-events: none; /* Suppression des interactions avec le footer et le contenu */
+  pointer-events: none;
 }
 
-/* Nouvelle galerie avec grid avancé */
 .gallery {
   position: relative;
   width: 100%;
@@ -66,22 +64,19 @@
 .imageSet {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  padding: 8rem 0;
   width: 100%;
   min-height: 300vh;
+  padding: 8rem 0;
 }
 
-/* Conteneurs d'images avec suppression des interactions */
 .imageContainer {
   position: relative;
+  aspect-ratio: 4/5;
   overflow: hidden;
   border-radius: 4px;
-  pointer-events: none; /* Suppression des interactions avec les images */
-  aspect-ratio: 4/5;
-  /* Suppression du curseur pointer */
+  pointer-events: none;
 }
 
-/* Positionnement spécifique pour chaque image */
 .imageContainer:nth-child(1) {
   grid-column: 2 / span 4;
   grid-row: 1;
@@ -122,23 +117,22 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  user-select: none; /* Empêcher la sélection des images */
-  -webkit-user-drag: none; /* Empêcher le glisser-déposer des images */
-  pointer-events: none; /* Désactiver les interactions souris sur l'image */
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
 }
 
-/* Footer et autres éléments UI */
 .footer {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+  width: 100%;
+  padding: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  width: 100%;
   z-index: 10;
-  padding: 2rem;
 }
 
 .main {
@@ -161,14 +155,24 @@
 }
 
 .timeLocation {
-  font-size: 0.875rem;
-  color: rgb(115, 115, 115);
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-size: 0.875rem;
+  color: rgb(115, 115, 115);
 }
 
-/* Adaptations responsive */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 @media (max-width: 1024px) {
   .imageSet {
     grid-template-columns: repeat(8, 1fr);
@@ -204,35 +208,18 @@
   }
 }
 
-/* Animation d'entrée pour les images de la galerie */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Mobile */
 @media (max-width: 768px) {
   .imageSet {
     grid-template-columns: repeat(6, 1fr);
     padding: 4rem 1rem;
   }
 
-  .imageContainer:nth-child(1),
-  .imageContainer:nth-child(3),
-  .imageContainer:nth-child(5) {
+  .imageContainer:nth-child(odd) {
     grid-column: 1 / span 4;
     margin-top: 5vh;
   }
 
-  .imageContainer:nth-child(2),
-  .imageContainer:nth-child(4),
-  .imageContainer:nth-child(6) {
+  .imageContainer:nth-child(even) {
     grid-column: 2 / span 4;
     margin-top: 10vh;
   }
@@ -254,8 +241,7 @@
 
   .imageContainer {
     grid-column: 1 / span 4 !important;
-    margin-top: 5vh !important;
-    margin-bottom: 5vh;
+    margin: 5vh 0 !important;
   }
 
   .description {

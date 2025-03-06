@@ -1,0 +1,29 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1.5rem;
+  background-color: transparent;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.copyright {
+  font-size: 0.875rem;
+}
+
+.location {
+  font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    padding: 1.5rem;
+  }
+}

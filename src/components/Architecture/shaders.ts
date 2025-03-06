@@ -14,6 +14,7 @@
 export const FRAGMENT_SHADER = `
   precision mediump float; // mediump au lieu de highp pour les appareils mobiles
   
+  
   // Uniforms
   uniform vec2 uImageSizes;
   uniform vec2 uPlaneSizes;

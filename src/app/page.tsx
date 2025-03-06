@@ -1,10 +1,10 @@
 import styles from "./page.module.css";
-import Architecture from "@/components/Architecture/Architecture";
+import Hero from "@/components/layouts/Hero/Hero";
 
 export default function Home() {
   return (
     <div className={styles.container}>
-      <Architecture />
+      <Hero />
     </div>
   );
 }
