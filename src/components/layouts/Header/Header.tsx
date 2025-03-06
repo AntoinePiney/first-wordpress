@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./Header.module.css";
 
@@ -11,6 +11,27 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Close menu when Escape key is pressed
+  useEffect(() => {
+    const handleEscKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    // Prevent body scrolling when menu is open
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    window.addEventListener("keydown", handleEscKey);
+    return () => {
+      window.removeEventListener("keydown", handleEscKey);
+    };
+  }, [isMenuOpen]);
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -19,28 +40,39 @@ const Header = () => {
         </div>
 
         <button
-          className={styles.menuButton}
+          className={`${styles.menuButton} ${
+            isMenuOpen ? styles.menuButtonActive : ""
+          }`}
           onClick={toggleMenu}
           aria-expanded={isMenuOpen}
           aria-label="Toggle navigation menu">
-          Menu
+          {isMenuOpen ? "Close" : "Menu"}
         </button>
 
-        {isMenuOpen && (
-          <nav className={styles.mobileMenu}>
+        <nav
+          className={`${styles.mobileMenu} ${
+            isMenuOpen ? styles.mobileMenuOpen : ""
+          }`}>
+          <div className={styles.menuContent}>
             <ul>
               <li>
-                <Link href="/projects">Projects</Link>
+                <Link href="/projects" onClick={() => setIsMenuOpen(false)}>
+                  Projects
+                </Link>
               </li>
               <li>
-                <Link href="/about">About</Link>
+                <Link href="/about" onClick={() => setIsMenuOpen(false)}>
+                  About
+                </Link>
               </li>
               <li>
-                <Link href="/contact">Contact</Link>
+                <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+                  Contact
+                </Link>
               </li>
             </ul>
-          </nav>
-        )}
+          </div>
+        </nav>
       </div>
     </header>
   );
