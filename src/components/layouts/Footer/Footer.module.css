@@ -15,7 +15,19 @@
 }
 
 .copyright {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
   font-size: 0.875rem;
+}
+
+.email {
+  color: #fff;
+  text-decoration: none;
+}
+
+.email:hover {
+  text-decoration: underline;
 }
 
 .location {
